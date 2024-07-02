@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "BankClient.Bl.Grpc";
+
+package user_account;
+
+service UserAccount {
+  rpc ListAccountByUserId (ListAccountByUserIdRequest) returns (ListAccountByUserIdResponse);
+}
+
+message ListAccountByUserIdRequest {
+  int64 user_id = 1;
+}
+
+message ListAccountByUserIdResponse {
+  repeated UserAccountItem accounts = 1;
+}
+
+message UserAccountItem {
+  int64 id = 1;
+  int64 user_id = 2;
+  int64 account_type_id = 3;
+  string account_type_name = 4;
+  string account_number = 5;
+}

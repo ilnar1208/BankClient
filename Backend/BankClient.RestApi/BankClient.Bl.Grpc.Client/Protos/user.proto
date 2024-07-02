@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "BankClient.Bl.Grpc.Client";
+
+package user;
+
+service User {
+  rpc GetById (GetByIdRequest) returns (GetByIdResponse);
+}
+
+message GetByIdRequest {
+  int64 user_id = 1;
+}
+
+message GetByIdResponse {
+  UserItem user = 1;
+}
+
+message UserItem {
+  int64 id = 1;
+  string name = 2;
+  string surname = 3;
+  string patronymic = 4;
+  string phone_number = 5;
+}
